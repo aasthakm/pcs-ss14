@@ -1,0 +1,19 @@
+\section{Design}
+\subsection{Overview}
+A Heresy network is consists of multiple individual dissent networks composed in a tree-structure. The leaves of the tree are users wishing to send messages anonymously. The users are parititoned into groups. Each group consists of a specific set of users, along with a set of dissent servers. Each group is a dissent network. In each round, users submit their ciphertexts and a usual dissent round is run in each group. At the end of a single round, one message is output from each group. We treat these as the ciphertexts for the next level in the heresy tree. This continues until one message reaches the root dissent group. At this point, the message is then multicast back down the tree and all users receive it. We refer to this as one complete hersey round.
+
+Users onion-encrypt their messages such that at each level, one layer of encryption can be removed. This is done to acheive the desired anonymity goals of the system. As is the case with dissent, the final output need not be a plaintext message, but rather encrypted for a specific recipient.
+
+\section{Design Parameters}
+
+An important design parameter is the branching factor of the Heresy tree. Let each dissent group consist of $k$ clients and $m$ servers. The branching factor, $k$, must be chosen to balance the trade-off between efficiency and anonymity. Since the dissent implementation works well with small groups clients, we pick $k=100$. Let $l$ denote the number of levels in the heresy tree. With $k=100$ and $l=4$ we can support 100 million clients.
+
+At each level after the first, each group must run $k$ dissent rounds for each round performed in the level below it. This implies the entire system is bottle-necked by the root dissent group. This must be done to avoid imposing a global schedual. In the dissent protocol, each client is assigned a specific slot during which it may send a message. If we did not run multiple instances, the system would need to drop messages. 
+
+Assuming the lowest level runs at a rate of 1 message per second, the top most level must process 1 million messages per second. Each dissent round is independent, these can be parallezied. Assuming we provision the system with sufficient resources, this is feasible.
+
+\section{Performance Comparsion}
+
+We compare Heresy to the corresponding Dissent configuration. In Dissent, each server must share a secret with every client, which must be XORed into the XOR of the client messages. In Heresy, each server must only share secrets with the layer directly below it. In addition, each server must broadcast a constant number of messages to \emph{all} other servers. 
+
+\todo{What should we actually compare?}
