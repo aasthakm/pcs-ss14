@@ -1,3 +1,18 @@
 \section{Introduction}
-Goals:
-Provide anonymity groups at a global scale (100 million clients!)
+%Goals:
+%Provide anonymity groups at a global scale (100 million clients!)
+
+Anonymous participation is an integral component of free societies. Users holding controversial or unpopular opinions about topics need to have an anonymous communication channel to share their views without fear of personal consequences.
+
+Online protocols such as mixnets ~\cite{chaum-dc,chaum-mix} vulnerable to traffic analysis while onion routing protocols do not scale well. DC-net protocol such as Dissent ~\cite{dissent} and Verdict ~\cite{verdict} enable small closed groups of users to participate in anonymous communication and also detect malicious users in the group. Dissent requires the members of the group to participate in each round of the protocol, in order to hide the users who are transmitting the messages. As a result, forming large anonymous groups of members is practically impossible, since it is difficult to synchronize all users to come online together.
+
+In this project, we explore the idea of organizing multiple dissent groups into a hierarchy to enable anonymous dissemination of information among larger masses leading to a heresy. We analyze the asymptotic costs involved in the end-to-end dissent protocol. We also do a security analysis of the hierarchical setup - identifying the number of nodes that need to be trusted in a single dissent group as well as in the entire hierarchy.
+
+We first give a brief overview of the dissent protocol in section 2. We then describe our proposed design in section 3. We describe our analyses of the protocol in section 4 and our efforts in implementing the hierarchical dissent protocol in section 5. We conclude with related work and future work in section 6 and 7 respectively.
+
+%outline:
+%- check mixnets, dc nets about user participation requirements
+%- check user participation requirements in tor
+%- mention how it is difficult to have large groups of people to come online and participate in the protocol together at the same time
+%	- need to be able to divide into smaller groups
+%-
