@@ -4,7 +4,7 @@ A Heresy network consists of multiple individual dissent networks composed in a 
 
 Users onion-encrypt their messages such that at each level, one layer of encryption can be removed. This is done to achieve the desired anonymity goals of the system. As is the case with dissent, the final output need not be a plaintext message, but rather encrypted for a specific recipient.
 
-\section{Design Parameters}
+\subsection{Design Parameters}
 
 An important design parameter is the branching factor of the Heresy tree. Let each dissent group consist of $k$ clients and $m$ servers. The branching factor, $k$, must be chosen to balance the trade-off between efficiency and anonymity. Since the dissent implementation works well with small groups clients, we pick $k=100$. Let $l$ denote the number of levels in the heresy tree. With $k=100$ and $l=4$ we can support 100 million clients.
 
