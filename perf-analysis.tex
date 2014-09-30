@@ -1,6 +1,5 @@
 \section{Performance}
 
-\Aastha{As described earlier, Dissent does scale for large groups of clients. Specifically, Dissent cannot serve large groups simply by adding more number of servers. While the additional server}
 It does not make sense to directly compare Dissent to Heresy, as Dissent cannot really be scaled by adding more servers. The additional servers increase the security of the system, as only one of the servers must be honest. At best, one can scale Dissent vertically, by increasing the computational power of a single server. This can be effectively accomplished by treating a group of individual computers as a single server in terms of the trust guarantees. This is essentially a similar approach to Heresy, one would need to XOR the client's messages in tree like manner to achieve scalability. However, group formation is greatly benefited  by Heresy's tree topology.
 
 The throughput of Heresy is bound by the top-level set of servers. As such,
