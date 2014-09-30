@@ -7,8 +7,7 @@ the throughput is equal that of Dissent. Heresy achieves scalability by trading 
 
 In Dissent, each server must share a secret with every client, which must be XORed into the XOR of the client messages. In Heresy, each server must only share secrets with the layer directly below it. In addition, each server must broadcast a constant number of messages to \emph{all} other servers in each round. \Aastha{Further, as in Verdict, the clients can communicate with a single upstream server at minimum, thereby reducing their communication as well as computation costs.}
  
-Group formation takes $O(n^3)$ serial messages in Dissent for a group of $N$ participants. In Heresy, we require $O(k^3 \cdot \frac{1-k^l}{1-k})$ which after simplifying equals $O(k^2n)$. 
-
+Group formation takes $O(n^3)$ serial messages in Dissent for a group of $n$ participants. In Heresy, we require $O(k^3 \cdot \frac{1-k^l}{1-k})$ which after simplifying equals $O(k^2n)$. This is linear in the number of end-users as $k$ is not dependant on $n$.
 
 
 
