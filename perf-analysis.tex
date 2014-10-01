@@ -1,10 +1,10 @@
-\section{Performance}
-
+\section{Performance analysis}
+\label{sec:perf-analysis}
 It does not make sense to directly compare Dissent to Heresy, as Dissent cannot really be scaled by adding more servers. The additional servers increase the security of the system, as only one of the servers must be honest. At best, one can scale Dissent vertically, by increasing the computational power of a single server. This can be effectively accomplished by treating a group of individual computers as a single server in terms of the trust guarantees. This is essentially a similar approach to Heresy, one would need to XOR the client's messages in tree like manner to achieve scalability. However, group formation is greatly benefited  by Heresy's tree topology.
 
 The throughput of Heresy is bound by the top-level set of servers. As such,
 the throughput is equal that of Dissent. Heresy achieves scalability by trading of end-latency for a single user, for the number of end users. Heresy can also scale in the same manner as Dissent - by increasing the number of clients per single Dissent group. This is, however, limited by other factors.
 
-In Dissent, each server must share a secret with every client, which must be XORed into the XOR of the client messages. In Heresy, each server must only share secrets with the layer directly below it. In addition, each server must broadcast a constant number of messages to \emph{all} other servers in each round. \Aastha{Further, as in Verdict, the clients can communicate with a single upstream server at minimum, thereby reducing their communication as well as computation costs.}
+In Dissent, each server must share a secret with every client, which must be XORed into the XOR of the client messages. In Heresy, each server must only share secrets with the layer directly below it. In addition, each server must broadcast a constant number of messages to \emph{all} other servers in each round. Further, as in Verdict, the clients can communicate with a single upstream server at minimum, thereby reducing their communication as well as computation costs.
  
 Group formation takes $O(n^3)$ serial messages in Dissent for a group of $n$ participants. In Heresy, we require $O(k^3 \cdot \frac{1-k^l}{1-k})$ which after simplifying equals $O(k^2n)$. This is linear in the number of end-users as $k$, the branching factor of the Heresy tree, is not dependant on $n$.

@@ -1,0 +1,7 @@
+\section{Conclusion}
+\label{sec:conclusion}
+We propose a hierarchical organization of clients and servers to achieve scalable anonymous messaging system. We did a theoretical analysis of the security requirements as well as asymptotic performance expected out of this setup.
+
+\section{Future work}
+\label{sec:future}
+We plan to run experiments of the blackbox Dissent protocol in a hierarchical configuration and validate our complexity analysis. A key overhead of the Dissent protocol is the setup phase, which impacts the overall latency and throughput of the group. Assuming the high capacity and availability of servers, the setup phase can be executed at each layer only once and the servers can communicate with each other in long running sessions.

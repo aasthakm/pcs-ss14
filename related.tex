@@ -1,0 +1,10 @@
+\section{Related Work}
+\label{sec:related}
+Our work is most closely related with Dissent and Verdict, the two systems that bring anonymous communication closer to practicality. While Dissent provides a protocol for anonymous messaging within small groups, the costs of communication and computation are too huge for the clients. This cost is removed in Verdict, yet, the costs at the server remain. These costs prevent from scaling up the group sizes simply by adding more servers. The hierarchical organization of anonymous groups alleviates the burden of the clients as well as the servers.
+
+
+Herbivore ~\cite{herbivore:tr} is another recent anonymous communication system, that allows for clients to organizes dynamically into peer-to-peer cliques. This means that clients are involved in $O(N^2)$ communication. In Heresy, each client need only communicate with a single upstream server at the immediate next level at minimum. Further, clients need not wait for any of the clients to be online in other Dissent groups at any layer. By allowing dynamic cliques, Herbivore addresses the issue of anonymous disruption attacks to some extent. However, it does not help to blame the malicious nodes. By beefing up the Heresy system with complex zero-knowledge proofs (ZKPs) from Verdict, this system would be able to identify malicious nodes and evict them from the group as well as prevent them from re-joining with the same psuedonym.
+
+%- Herbivore
+- Freenet
+- Onion routing

@@ -1,4 +1,5 @@
 \section{Design}
+\label{sec:Design}
 \subsection{Overview}
 A Heresy network consists of multiple individual Dissent networks composed in a tree-structure. Figure \ref{fig:heresy} shows the structure of a Heresy network. The leaves of the tree are users wishing to send messages anonymously. The users are partitioned into groups. Each group consists of a specific set of users, along with a set of Dissent servers. Each group is a Dissent network. In each round, users submit their cipher texts and a usual Dissent round is run in each group. At the end of a single round, one message is output from each group. We treat these as the cipher texts for the next level in the heresy tree. This continues until one message reaches the root Dissent group. At this point, the message is then multicast back down the tree and all users receive it. We refer to this as one complete Heresy round.
 
